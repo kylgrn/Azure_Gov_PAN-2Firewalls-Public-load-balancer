@@ -6,9 +6,10 @@
 
 **This templated is a revised version of the official Palo Alto Azure template but has been updated to work with Azure Government**
 <br>
-<b<Original text:</b>
+<b>Original text:</b>
 <br>
 This template was created to support the deployment of a Public Azure Load Balancer in front of 2 Palo Alto Networks Firewalls. It supports the following features:
+<br>
 The 2 firewalls deploys with 4-8 interfaces. 1 MGMT and 3-7 data plane.
 Static IP addresses are assigned to the interfaces based on the input in the starting ip address fields.
 This template deploys into existing VNETs and storage accounts within the same region. As a result, the storage account and VNET must be created before deploying this template.
