@@ -18,26 +18,26 @@ Static IP addresses are assigned to the interfaces based on the input in the sta
 This template deploys into existing VNETs and storage accounts within the same region. As a result, the storage account and VNET must be created before deploying this template.
 <br>
 <br>
-  -The following Storage Account types are supported:
-              -Standard_LRS
-              -Standard_GRS
-              -Standard_RAGRS
-              -Premium_LRS
-  -The following VMs are supported:
-              -Standard_D3
-              -Standard_D4
-              -Standard_D3_v2
-              -Standard_D4_v2
-              -Standard_A4
-              -Standard_DS3_v2
-              -Standard_DS4_v2
-  -The following VMs Licenses:
-       	      -Byol
-              -Bundle1
-              -Bundle2
-  -The following PAN OS Options:
-              -Latest
-              -7.1.1 
-        
+  -The following Storage Account types are supported:<br>
+              -Standard_LRS<br>
+              -Standard_GRS<br>
+              -Standard_RAGRS<br>
+              -Premium_LRS<br>
+  -The following VMs are supported:<br>
+              -Standard_D3<br>
+              -Standard_D4<br>
+              -Standard_D3_v2<br>
+              -Standard_D4_v2<br>
+              -Standard_A4<br>
+              -Standard_DS3_v2<br>
+              -Standard_DS4_v2<br>
+  -The following VMs Licenses:<br>
+       	      -Byol<br>
+              -Bundle1<br>
+              -Bundle2<br>
+  -The following PAN OS Options:<br>
+              -Latest<br>
+              -7.1.1 <br>
+        <br><br>
               
   NOTE: Make sure the VMs are supported in the specific Storage Account Type and Azure Region.
