@@ -634,7 +634,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://', parameters('storageAccountFW1'), '.blob.core.usgovcloudapi.net/vhds/', parameters('vmName'), '-', variables('imageOffer'), '-', variables('imageSku'), '.vhd')]"
+              "uri": "[concat('http://', variables('fwstoragenameName1'), '.blob.core.usgovcloudapi.net/vhds/', parameters('vmName'), '-', variables('imageOffer'), '-', variables('imageSku'), '.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -710,7 +710,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://', parameters('storageAccountFW2'), '.blob.core.usgovcloudapi.net/vhds/', parameters('FW2vmName'), '-', variables('imageOffer'), '-', variables('imageSku'), '.vhd')]"
+              "uri": "[concat('http://', variables('fwstoragenameName2'), '.blob.core.usgovcloudapi.net/vhds/', parameters('FW2vmName'), '-', variables('imageOffer'), '-', variables('imageSku'), '.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
