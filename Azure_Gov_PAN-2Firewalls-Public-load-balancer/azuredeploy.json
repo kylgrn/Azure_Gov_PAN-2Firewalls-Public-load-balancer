@@ -675,7 +675,7 @@
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '2')]",
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '3')]",
         "[concat('Microsoft.Compute/availabilitySets/', parameters('fwAvSet'))]",
-        "[concat('Microsoft.Storage/StorageAccounts/', variables('fwstoragenameName1'), '0')]"
+        "[concat('Microsoft.Storage/StorageAccounts/', variables('fwstoragenameName1'))]"
       ]
     },
     {
@@ -751,7 +751,7 @@
         "[concat('Microsoft.Network/networkInterfaces/', variables('FW2nicName'), '2')]",
         "[concat('Microsoft.Network/networkInterfaces/', variables('FW2nicName'), '3')]",
         "[concat('Microsoft.Compute/availabilitySets/', parameters('fwAvSet'))]",
-        "[concat('Microsoft.Storage/StorageAccounts/', variables('fwstoragenameName2'), '0')]"
+        "[concat('Microsoft.Storage/StorageAccounts/', variables('fwstoragenameName2'))]"
       ]
     }
   ]
