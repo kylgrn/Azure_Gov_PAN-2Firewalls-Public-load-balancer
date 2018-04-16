@@ -239,18 +239,6 @@
             "metadata": {
                 "description": "Name of FW2 MGMT Public Address"
             }
-        },
-        "lbName": {
-            "type": "String",
-            "metadata": {
-                "description": "Load Balancer Name"
-            }
-        },
-        "lbPublicIpAddressName": {
-            "type": "String",
-            "metadata": {
-                "description": "Load Balancer Public IP Address DNS Name"
-            }
         }
     },
     "variables": {
@@ -314,87 +302,6 @@
             },
             "resources": [],
             "dependsOn": []
-        },
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "[parameters('lbPublicIpAddressName')]",
-            "apiVersion": "2016-03-30",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "publicIPAllocationMethod": "Static",
-                "idleTimeoutInMinutes": 4,
-                "dnsSettings": {
-                    "domainNameLabel": "[parameters('lbPublicIpAddressName')]"
-                }
-            },
-            "resources": [],
-            "dependsOn": []
-        },
-        {
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "[parameters('lbName')]",
-            "apiVersion": "2016-03-30",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "LoadBalancerFrontEnd",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('lbPublicIpAddressName'))]"
-                            }
-                        }
-                    }
-                ],
-                "backendAddressPools": [
-                    {
-                        "name": "AS-FW"
-                    }
-                ],
-                "loadBalancingRules": [
-                    {
-                        "name": "LB-FW-HTTP",
-                        "properties": {
-                            "frontendIPConfiguration": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('lbName')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
-                            },
-                            "frontendPort": 80,
-                            "backendPort": 80,
-                            "enableFloatingIP": false,
-                            "idleTimeoutInMinutes": 4,
-                            "protocol": "Tcp",
-                            "loadDistribution": "Default",
-                            "backendAddressPool": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('lbName')), '/backendAddressPools/AS-FW')]"
-                            },
-                            "probe": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('lbName')), '/probes/AS-FW')]"
-                            }
-                        }
-                    }
-                ],
-                "probes": [
-                    {
-                        "name": "AS-FW",
-                        "properties": {
-                            "protocol": "Http",
-                            "port": 80,
-                            "requestPath": "/",
-                            "intervalInSeconds": 5,
-                            "numberOfProbes": 2
-                        }
-                    }
-                ],
-                "inboundNatRules": [],
-                "outboundNatRules": [],
-                "inboundNatPools": []
-            },
-            "resources": [],
-            "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', parameters('lbPublicIpAddressName'))]",
-                "[concat('Microsoft.Compute/availabilitySets/', parameters('fwAvSet'))]"
-            ]
         },
         {
             "type": "Microsoft.Network/publicIPAddresses",
